@@ -28,6 +28,11 @@ def index(request):
     return render(request, 'index.html', informacion_template)
 
 
+def index2(request):
+    pais = Pais.objects.all()
+    inf_template = {"pais": pais, "numpais":len(pais)}
+    return render(request, "index2.html", inf_template)
+
 def obtener_estudiante(request, id):
     """
         Listar los registros del modelo Estudiante,
@@ -61,7 +66,11 @@ def crear_estudiante(request):
 
     return render(request, 'crearEstudiante.html', diccionario)
 
-
+def crear_pais(request):
+    print(request)
+    if request.method == "POST":
+        formulario = PaisForm
+        
 def editar_estudiante(request, id):
     """
     """

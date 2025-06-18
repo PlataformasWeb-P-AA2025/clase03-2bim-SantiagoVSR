@@ -3,11 +3,19 @@ from django.db import models
 # Create your models here.
 class Pais(models.Model):
     # nombre
+    nombre = models.CharField(max_length=30)
     # capital
+    capital = models.CharField(max_length=30)
     # número de provincias
+    numProvincia: models.IntegerField()
     # número de habitantes
-    pass
+    numHabitante: models.IntegerField()
 
+    def __str__(self):
+        return "%s %s %s %s" % (self.nombre, 
+                self.capital,
+                self.numProvincia,
+                self.numHabitante)
 
 class Estudiante(models.Model):
     nombre = models.CharField(max_length=30)
